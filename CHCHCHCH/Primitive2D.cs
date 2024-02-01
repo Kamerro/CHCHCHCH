@@ -7,10 +7,10 @@ namespace CHCHCHCH
     internal class Primitive2D
     {
         protected Vector2 Position = Vector2.Zero;
-        protected int Speed = 11;
         protected Texture2D Texture;
         public Guid contactWith;
         public Guid guid;
+        public Rectangle rect;
         public Primitive2D()
         {
             this.guid = Guid.NewGuid();
@@ -28,6 +28,7 @@ namespace CHCHCHCH
         public virtual void SetPicture(Texture2D texture2D)
         {
             Texture = texture2D;
+            rect = texture2D.Bounds;
         }
 
         public virtual void SetPosition(Vector2 vector2)

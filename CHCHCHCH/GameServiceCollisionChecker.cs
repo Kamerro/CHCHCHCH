@@ -59,6 +59,12 @@ namespace CHCHCHCH
             int i = 0;
             foreach (var obj in objects)
             {
+                if (i == 0)
+                {
+                    objects_rects.Add(new Rectangle((int)objects[i].GetPosition().X+10, (int)objects[i].GetPosition().Y,
+                                               (int)objects[i].GetTexture().Width-5, (int)objects[i].GetTexture().Height));
+                }
+                else
                 objects_rects.Add(new Rectangle((int)objects[i].GetPosition().X, (int)objects[i].GetPosition().Y,
                                                  (int)objects[i].GetTexture().Width, (int)objects[i].GetTexture().Height));
                 i++;

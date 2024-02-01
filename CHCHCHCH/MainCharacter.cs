@@ -10,12 +10,10 @@ namespace CHCHCHCH
     {
         DateTime dt = DateTime.Now;
         int jumppower=0;
-        private int GravityForce = 4;
         private int time = 0;
         private int MaxJumpValue;
         public MainCharacter()
         {
-            Speed = 3;
             MaxJumpValue = 12;
         }
         public override void CalculatePosition()
@@ -28,7 +26,7 @@ namespace CHCHCHCH
 
             if (kbstate.IsKeyDown(Keys.Right))
             {
-                for (int i = 0; i < Speed; i++)
+                for (int i = 0; i < WorldConfiguration.MainCharSpeed; i++)
                     if (!GameServiceCollisionChecker.CheckCollisionsX(1))
                     {
                         MakeMoveX(1);
@@ -36,7 +34,7 @@ namespace CHCHCHCH
             }
             else if (kbstate.IsKeyDown(Keys.Left))
             {
-                for (int i = 0; i < Speed; i++)
+                for (int i = 0; i < WorldConfiguration.MainCharSpeed; i++)
                     if (!GameServiceCollisionChecker.CheckCollisionsX(-1))
                     {
                         MakeMoveX(-1);
@@ -81,7 +79,7 @@ namespace CHCHCHCH
         private void CalculateGravityForce()
         {
             bool marker = false;
-            for (int i = 0; i < GravityForce; i++)
+            for (int i = 0; i < WorldConfiguration.GravityForce; i++)
             {
                 if (!GameServiceCollisionChecker.CheckCollisions(1))
                 {
